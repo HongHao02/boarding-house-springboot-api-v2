@@ -152,7 +152,7 @@ public class BaiVietServiceImpl implements BaiVietService {
     public ResponseObject getBaiVietListFollowPage(int page, int size) {
         try {
             Pageable pageable = PageRequest.of(page, size);
-            LocalDateTime sevenDayAgo= LocalDateTime.now(ZoneId.of("Asia/Ho_Chi_Minh")).minusDays(7);
+            LocalDateTime sevenDayAgo= LocalDateTime.now(ZoneId.of("Asia/Ho_Chi_Minh")).minusDays(30);
             Page<BaiViet> baiVietPage = baiVietRepository.findSevenDayAgoPosts(pageable, sevenDayAgo);
             List<BaiViet> baiVietList = baiVietPage.getContent();
             List<BaiVietDTO> baiVietDTOList = new ArrayList<>();
